@@ -1,3 +1,5 @@
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/stevenpollack/dairy_queen)
+
 # dairy_queen
 
 This repository contains python code to calculate all possible "double dips" for
