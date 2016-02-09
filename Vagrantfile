@@ -12,8 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "hashicorp/precise64"
-
+  config.vm.box = 'ubuntu/trusty64'
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -23,6 +22,12 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # setup port-forwarding for jupyter notebook and rethinkdb
+  config.vm.network "forwarded_port", guest: 8888, host: 8080, auto_correct: true  
+  config.vm.network "forwarded_port", guest: 28015, host: 28015
+  config.vm.network "forwarded_port", guest: 29015, host: 29015
+
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -43,13 +48,13 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
+  # Customize the amount of memory on the VM:
+     vb.memory = "2048"
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -66,26 +71,18 @@ Vagrant.configure(2) do |config|
     type: "shell",
     path: "https://raw.githubusercontent.com/stevenpollack/cloaked-wight/master/remove_translation_packages.sh"
 
-  config.vm.provision "install-git",
-    type: "shell",
-    inline: "sudo apt-get install -y git > /dev/null"
+  #config.vm.provision "install-git", type: "shell", inline: "sudo apt-get install -y git > /dev/null"
 
-  config.vm.provision "install-rethinkdb",
-   type: "shell",
-   path: "install_rethinkdb.sh"
+  config.vm.provision "install-vim", type: "shell", privileged: false, inline: <<-SHELL
+    sudo apt-get install -y git > /dev/null
+    wget -qO- https://raw.githubusercontent.com/stevenpollack/cloaked-wight/master/vim/install_gvim_and_plugins.sh | sh
+    wget -O ~/.vimrc https://raw.githubusercontent.com/stevenpollack/cloaked-wight/master/vim/.vimrc
+    vim -e +PluginInstall +VimProcInstall +qall now
+  SHELL
 
-  config.vm.provision "install-anaconda",
-    type: "shell",
-    path: "install_anaconda.sh"
-  
-  # install project dependencies
-  config.vm.provision "install-project-dependencies", type: "shell" do |s|
-    # conda doesn't have rethinkdb yet, so we have to use pip
-    s.inline = "source ~/.bashrc"
-    s.inline = "sudo pip install --upgrade pip; pip install rethinkdb"
-    s.inline = "conda install -y jupyter pandas requests" 
-  end
-
+  #config.vm.provision "install-rethinkdb", type: "shell", path: "install_rethinkdb.sh"
+  #config.vm.provision "install-python_dependencies", type: "shell", path: "install_python_dependencies.sh"
+  #
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
