@@ -35,6 +35,7 @@ conda install -y nomkl
 conda install -y jupyter pandas requests
 
 # copy over config file to default location
+mkdir /home/vagrant/.jupyter
 sudo ln -fs $jupyter_config /home/vagrant/.jupyter/jupyter_notebook_config.py
 
 # setup jupyter service init.d 
