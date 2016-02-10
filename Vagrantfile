@@ -83,8 +83,8 @@ Vagrant.configure(2) do |config|
     echo "vim was installed, but you'll still want to re-run vundle"
   SHELL
 
-  config.vm.provision "install-rethinkdb", type: "shell", path: "install_rethinkdb.sh"
-  config.vm.provision "install-python_dependencies", type: "shell", path: "install_python_dependencies.sh"
+  config.vm.provision "install-rethinkdb", type: "shell", path: "provisioning/install_rethinkdb.sh"
+  config.vm.provision "install-python_dependencies", type: "shell", path: "provisioning/install_python_dependencies.sh"
   
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the

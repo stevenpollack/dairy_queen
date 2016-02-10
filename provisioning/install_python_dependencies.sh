@@ -1,19 +1,20 @@
 #!/bin/bash
 
-cd /vagrant
 # install anaconda and jupyter (as a service)
-miniconda=provisioning/Miniconda3-latest-Linux-x86_64.sh
+miniconda=/vagrant/provisioning/Miniconda3-latest-Linux-x86_64.sh
 anaconda_dir=/opt/anaconda
 anaconda_bin=$anaconda_dir/bin
-jupyter_initd=provisioning/init.d_jupyter-notebook
-jupyter_config=config_files/jupyter_notebook_config.py
+jupyter_initd=/vagrant/provisioning/init.d_jupyter-notebook
+jupyter_config=/vagrant/config_files/jupyter_notebook_config.py
+
+cd /vagrant
 
 if [[ ! -f $miniconda ]]; then
   wget --quiet http://repo.continuum.io/miniconda/$miniconda
 fi
 
 chmod +x $miniconda
-./$miniconda -b -p $anaconda_dir
+$miniconda -b -p $anaconda_dir
 
 cat >> /home/vagrant/.bashrc << END
 # add for anaconda install

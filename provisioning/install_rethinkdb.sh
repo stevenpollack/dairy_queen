@@ -10,6 +10,6 @@ sudo apt-get update
 sudo apt-get -y install rethinkdb
 
 # setup rethink to start with server, but bind ports to 0.0.0.0
-sudo ln -fs config_files/rethinkdb.conf /etc/rethinkdb/instances.d/instance1.conf 
+sudo ln -fs /vagrant/config_files/rethinkdb.conf /etc/rethinkdb/instances.d/instance1.conf 
 sudo /etc/init.d/rethinkdb restart
 
