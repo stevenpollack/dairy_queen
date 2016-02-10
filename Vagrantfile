@@ -71,18 +71,17 @@ Vagrant.configure(2) do |config|
     type: "shell",
     path: "https://raw.githubusercontent.com/stevenpollack/cloaked-wight/master/remove_translation_packages.sh"
 
-  #config.vm.provision "install-git", type: "shell", inline: "sudo apt-get install -y git > /dev/null"
-
   config.vm.provision "install-vim", type: "shell", privileged: false, inline: <<-SHELL
+    cd /home/vagrant
     sudo apt-get install -y git > /dev/null
+    wget https://raw.githubusercontent.com/stevenpollack/cloaked-wight/master/vim/.vimrc
     wget -qO- https://raw.githubusercontent.com/stevenpollack/cloaked-wight/master/vim/install_gvim_and_plugins.sh | sh
-    wget -O ~/.vimrc https://raw.githubusercontent.com/stevenpollack/cloaked-wight/master/vim/.vimrc
-    vim -e +PluginInstall +VimProcInstall +qall now
+    echo "vim was installed, but you'll still want to re-run vundle"
   SHELL
 
-  #config.vm.provision "install-rethinkdb", type: "shell", path: "install_rethinkdb.sh"
-  #config.vm.provision "install-python_dependencies", type: "shell", path: "install_python_dependencies.sh"
-  #
+  config.vm.provision "install-rethinkdb", type: "shell", path: "install_rethinkdb.sh"
+  config.vm.provision "install-python_dependencies", type: "shell", path: "install_python_dependencies.sh"
+  
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
