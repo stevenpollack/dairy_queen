@@ -23,10 +23,14 @@ Vagrant.configure(2) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  # setup port-forwarding for jupyter notebook and rethinkdb
-  config.vm.network "forwarded_port", guest: 8888, host: 8080, auto_correct: true  
-  config.vm.network "forwarded_port", guest: 28015, host: 28015
-  config.vm.network "forwarded_port", guest: 29015, host: 29015
+  # jupyter web ui
+  config.vm.network "forwarded_port", guest: 8888, host: 1888, auto_correct: true
+  # rethinkdb web ui
+  config.vm.network "forwarded_port", guest: 8080, host: 1880, auto_correct: true
+  # rethinkdb client driver connections
+  config.vm.network "forwarded_port", guest: 28015, host: 8015, auto_correct: true
+  # rethinkdb intracluster connections
+  config.vm.network "forwarded_port", guest: 29015, host: 9015, auto_correct: true
 
 
   # Create a private network, which allows host-only access to the machine

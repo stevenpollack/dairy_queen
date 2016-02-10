@@ -26,5 +26,8 @@ export PATH=$anaconda_bin:$PATH
 # inside the anaconda installation directory:
 pip install --upgrade pip
 pip install rethinkdb
-conda install -y nomkl # we don't need MKL
+
+# if we don't turn off MKL there's 212.6 MB of packages to download;
+# otherwise theres ~ 95 MB
+conda install -y nomkl
 conda install -y jupyter pandas requests
