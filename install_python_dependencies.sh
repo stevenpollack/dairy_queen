@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# install anaconda
+# install anaconda and jupyter (as a service)
 miniconda=Miniconda3-latest-Linux-x86_64.sh
 anaconda_dir=/opt/anaconda
 anaconda_bin=$anaconda_dir/bin
+jupyter_initd=/vagrant/init.d_jupyter-notebook
+jupyter_config=/vagrant/jupyter_notebook_config.py
 
 cd /vagrant
 
@@ -31,3 +33,17 @@ pip install rethinkdb
 # otherwise theres ~ 95 MB
 conda install -y nomkl
 conda install -y jupyter pandas requests
+
+# copy over config file to default location
+sudo ln -fs $jupyter_config /home/vagrant/.jupyter/jupyter_notebook_config.py
+
+# setup jupyter service init.d 
+if [[ ! -f $jupyter_initd ]]; then
+  wget -O $jupyter_initd https://gist.githubusercontent.com/stevenpollack/bcd54262313352cebdbd/raw/init.d_jupyter-notebook
+fi
+
+sudo chmod +x $jupyter_initd
+sudo ln -fs $jupyter_initd /etc/init.d/jupyter-notebook
+
+sudo /etc/init.d/jupyter-notebook restart
+
