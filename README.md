@@ -29,8 +29,8 @@ cd /path/to/dairy_queen
 vagrant up
 ```
 you can access the `rethinkdb` dashboard via
-http://localhost:1880/ or you can work in an `jupyter` notebook via
-http://localhost:1888/
+[http://localhost:1880/](http://localhost:1880/) or you can work in an `jupyter` notebook via
+[http://localhost:1888/](http://localhost:1888/)
 
 Of course you can always get into the vagrant box via
 ```bash
