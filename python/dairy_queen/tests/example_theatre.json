@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Test Theatre 1",
+    "description": "Test when there's an acceptable overlap",
+    "program": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "showtimes": "16:00",
+        "warning_thrown": false
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "showtimes": "16:55",
+        "warning_thrown": false
+      }
+    ]
+  },
+  {
+    "name": "Test Theatre 2",
+    "description": "Test when there's an acceptable distance",
+    "program": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "showtimes": "16:00",
+        "warning_thrown": false
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "showtimes": "17:05",
+        "warning_thrown": false
+      }
+    ]
+  },
+  {
+    "name": "Test Theatre 3",
+    "description": "Test when there's an unacceptable distance",
+    "program": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "showtimes": "16:00",
+        "warning_thrown": false
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "showtimes": "18:00",
+        "warning_thrown": false
+      }
+    ]
+  },
+    {
+    "name": "Test Theatre 4",
+    "description": "Test when there's an unacceptable overlap",
+    "program": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "showtimes": "16:00",
+        "warning_thrown": false
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "showtimes": "16:25",
+        "warning_thrown": false
+      }
+    ]
+  },
+  {
+    "name": "Test Theatre 5",
+    "description": "Test triplet when there's an unacceptable distance",
+    "program": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "showtimes": "16:00",
+        "warning_thrown": false
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "showtimes": "17:05",
+        "warning_thrown": false
+      },
+      {
+        "name": "c",
+        "runtime": 60,
+        "showtimes": "19:05",
+        "warning_thrown": false
+      }
+    ]
+  },
+    {
+    "name": "Test Theatre 6",
+    "description": "Test triplet when all are acceptable distance",
+    "program": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "showtimes": "16:00",
+        "warning_thrown": false
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "showtimes": "17:05",
+        "warning_thrown": false
+      },
+      {
+        "name": "c",
+        "runtime": 60,
+        "showtimes": "18:10",
+        "warning_thrown": false
+      }
+    ]
+  }
+]
