@@ -1,0 +1,392 @@
+[
+  {
+    "address": "G\u00e4rtnerstr. 19, 10245 Berlin, Germany",
+    "name": "ladenKino",
+    "phone_number": "030 63413115",
+    "program": [
+      {
+        "mid": "3ce9a55aeb1bc89c",
+        "misc_info": null,
+        "name": "Robinson Crusoe",
+        "rating": "Rated Ohne Altersbeschr\u00e4nkung",
+        "runtime": 90,
+        "showtimes": [
+          "16:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=3ce9a55aeb1bc89c",
+        "warning_thrown": false
+      },
+      {
+        "mid": "7ceaa2502a8b9b88",
+        "misc_info": null,
+        "name": "Bibi & Tina - M\u00e4dchen gegen Jungs",
+        "rating": "Rated Ohne Altersbeschr\u00e4nkung",
+        "runtime": 111,
+        "showtimes": [
+          "15:45"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=7ceaa2502a8b9b88",
+        "warning_thrown": false
+      },
+      {
+        "mid": "f3f1d58aa3724a3e",
+        "misc_info": null,
+        "name": "The Big Short",
+        "rating": "Rated Freigegeben ab 6 Jahren",
+        "runtime": 131,
+        "showtimes": [
+          "17:30"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=f3f1d58aa3724a3e",
+        "warning_thrown": false
+      },
+      {
+        "mid": "f43b67c9fe68fa4e",
+        "misc_info": null,
+        "name": "Das brandneue Testament",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 115,
+        "showtimes": [
+          "21:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=f43b67c9fe68fa4e",
+        "warning_thrown": false
+      },
+      {
+        "mid": "23c977cb20b2bfdd",
+        "misc_info": null,
+        "name": "Nichts passiert",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 88,
+        "showtimes": [
+          "19:30"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=23c977cb20b2bfdd",
+        "warning_thrown": false
+      },
+      {
+        "mid": "7f9f456ad52ac236",
+        "misc_info": null,
+        "name": "Die Peanuts - Der Film",
+        "rating": "Rated Ohne Altersbeschr\u00e4nkung",
+        "runtime": 89,
+        "showtimes": [
+          "12:30"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=7f9f456ad52ac236",
+        "warning_thrown": false
+      },
+      {
+        "mid": "ae2c6899289ba637",
+        "misc_info": null,
+        "name": "69 Tage der Hoffnung",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 127,
+        "showtimes": [
+          "17:45"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=ae2c6899289ba637",
+        "warning_thrown": false
+      },
+      {
+        "mid": "d573e35953ba5e8d",
+        "misc_info": "Subtitled in German",
+        "name": "The Hateful 8 (OmU)",
+        "rating": "Rated Freigegeben ab 16 Jahren",
+        "runtime": 169,
+        "showtimes": [
+          "21:15"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=d573e35953ba5e8d",
+        "warning_thrown": false
+      },
+      {
+        "mid": "ad49fd89854bcaae",
+        "misc_info": null,
+        "name": "Passion for Planet",
+        "rating": "Rated Ohne Altersbeschr\u00e4nkung",
+        "runtime": 98,
+        "showtimes": [
+          "11:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=ad49fd89854bcaae",
+        "warning_thrown": false
+      },
+      {
+        "mid": "372d2184d6968903",
+        "misc_info": "Subtitled in German",
+        "name": "The Revenant - Der R\u00fcckkehrer (OmU)",
+        "rating": "Rated Freigegeben ab 16 Jahren",
+        "runtime": 157,
+        "showtimes": [
+          "20:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=372d2184d6968903",
+        "warning_thrown": false
+      },
+      {
+        "mid": "dd10e90b180ef9c1",
+        "misc_info": "Subtitled in German",
+        "name": "The Danish Girl (OmU)",
+        "rating": "Rated Freigegeben ab 6 Jahren",
+        "runtime": 120,
+        "showtimes": [
+          "14:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=dd10e90b180ef9c1",
+        "warning_thrown": false
+      },
+      {
+        "mid": "4bdb594db0006384",
+        "misc_info": null,
+        "name": "Feuer bewahren, nicht Asche anbeten",
+        "rating": "Rated Ohne Altersbeschr\u00e4nkung",
+        "runtime": 86,
+        "showtimes": [
+          "11:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=4bdb594db0006384",
+        "warning_thrown": false
+      },
+      {
+        "mid": "74f24d15e111552f",
+        "misc_info": "Subtitled in German",
+        "name": "Im Schatten der Frauen (OmU)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 73,
+        "showtimes": [
+          "14:30"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=74f24d15e111552f",
+        "warning_thrown": false
+      },
+      {
+        "mid": "1a2f88838c165e9c",
+        "misc_info": null,
+        "name": "Die Melodie des Meeres",
+        "rating": "Rated Ohne Altersbeschr\u00e4nkung",
+        "runtime": 93,
+        "showtimes": [
+          "13:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=1a2f88838c165e9c",
+        "warning_thrown": false
+      },
+      {
+        "mid": "aa688a7d05fabd8d",
+        "misc_info": "Subtitled in German",
+        "name": "Hello I Am David! Eine Reise mit David Helfgott (OmU)",
+        "rating": "Rated Ohne Altersbeschr\u00e4nkung",
+        "runtime": 98,
+        "showtimes": [
+          "16:15"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=aa688a7d05fabd8d",
+        "warning_thrown": false
+      },
+      {
+        "mid": "f19b1fbd26953a6b",
+        "misc_info": "Subtitled in German",
+        "name": "Mustang (OmU)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 94,
+        "showtimes": [
+          "19:45"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=f19b1fbd26953a6b",
+        "warning_thrown": false
+      },
+      {
+        "mid": "4be746e6bf66330e",
+        "misc_info": "Subtitled in German",
+        "name": "D\u00e4monen und Wunder - Dheepan (OmU)",
+        "rating": "Rated Freigegeben ab 16 Jahren",
+        "runtime": 115,
+        "showtimes": [
+          "11:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=4be746e6bf66330e",
+        "warning_thrown": false
+      },
+      {
+        "mid": "755cf849a0cbfe1b",
+        "misc_info": null,
+        "name": "Holy Cow (OmU)",
+        "rating": null,
+        "runtime": 0,
+        "showtimes": [
+          "14:45"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=755cf849a0cbfe1b",
+        "warning_thrown": true
+      },
+      {
+        "mid": "d317ca9b74546316",
+        "misc_info": null,
+        "name": "Love (OV)",
+        "rating": "Rated Freigegeben ab 18 Jahren",
+        "runtime": 141,
+        "showtimes": [
+          "22:45"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=d317ca9b74546316",
+        "warning_thrown": false
+      },
+      {
+        "mid": "e07f754bf2f06144",
+        "misc_info": null,
+        "name": "The True Cost - Der Preis der Mode (OmU)",
+        "rating": null,
+        "runtime": 0,
+        "showtimes": [
+          "13:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=e07f754bf2f06144",
+        "warning_thrown": true
+      },
+      {
+        "mid": "6af4ed7df87a4725",
+        "misc_info": "Subtitled in German",
+        "name": "Antons Fest (OmU)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 97,
+        "showtimes": [
+          "18:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=6af4ed7df87a4725",
+        "warning_thrown": false
+      },
+      {
+        "mid": "1fb49467b88419ca",
+        "misc_info": "Subtitled in German",
+        "name": "Sibylle (OmU)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 86,
+        "showtimes": [
+          "23:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=1fb49467b88419ca",
+        "warning_thrown": false
+      }
+    ],
+    "tid": "576e783453fcf5c8",
+    "url": "/movies?near=Berlin&date=7&tid=576e783453fcf5c8",
+    "warning_thrown": false
+  },
+  {
+    "address": "Nansenstr. 22, 12047 Berlin, Germany",
+    "name": "IL KINO",
+    "phone_number": "030 81898899",
+    "program": [
+      {
+        "mid": "89fbf788383b9aff",
+        "misc_info": "Subtitled in German",
+        "name": "Anomalisa (OmU)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 91,
+        "showtimes": [
+          "20:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=89fbf788383b9aff",
+        "warning_thrown": false
+      },
+      {
+        "mid": "ca33b0e96a4fe82f",
+        "misc_info": "Subtitled in German",
+        "name": "Das brandneue Testament (OmU)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 115,
+        "showtimes": [
+          "22:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=ca33b0e96a4fe82f",
+        "warning_thrown": false
+      },
+      {
+        "mid": "17694279b65f2819",
+        "misc_info": "Subtitled in German",
+        "name": "Louder Than Bombs (OmU)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 109,
+        "showtimes": [
+          "16:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=17694279b65f2819",
+        "warning_thrown": false
+      },
+      {
+        "mid": "5782a27753fb17b6",
+        "misc_info": null,
+        "name": "Das Salz der Erde (OV)",
+        "rating": "Rated Freigegeben ab 12 Jahren",
+        "runtime": 110,
+        "showtimes": [
+          "18:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=5782a27753fb17b6",
+        "warning_thrown": false
+      }
+    ],
+    "tid": "13a238c2e33fff0",
+    "url": "/movies?near=Berlin&date=7&tid=13a238c2e33fff0",
+    "warning_thrown": false
+  },
+  {
+    "address": "Boxhagener Str. 107, 10245 Berlin, Germany",
+    "name": "Intimes",
+    "phone_number": "030 29777640",
+    "program": [
+      {
+        "mid": "55a047dca435c24a",
+        "misc_info": null,
+        "name": "The Hateful 8",
+        "rating": "Rated Freigegeben ab 16 Jahren",
+        "runtime": 169,
+        "showtimes": [
+          "20:00",
+          "22:45"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=55a047dca435c24a",
+        "warning_thrown": false
+      },
+      {
+        "mid": "e55f1337b909b7d8",
+        "misc_info": null,
+        "name": "The Danish Girl",
+        "rating": "Rated Freigegeben ab 6 Jahren",
+        "runtime": 120,
+        "showtimes": [
+          "17:45"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=e55f1337b909b7d8",
+        "warning_thrown": false
+      }
+    ],
+    "tid": "54dc9e818bb399fa",
+    "url": "/movies?near=Berlin&date=7&tid=54dc9e818bb399fa",
+    "warning_thrown": false
+  },
+  {
+    "address": "An der Urania 17, 10787 Berlin, Germany",
+    "name": "Urania",
+    "phone_number": "030 2189091",
+    "program": [
+      {
+        "mid": "4f6529bc642ca30d",
+        "misc_info": null,
+        "name": "Wie auf Erden",
+        "rating": "Rated Freigegeben ab 6 Jahren",
+        "runtime": 135,
+        "showtimes": [
+          "16:30",
+          "19:00"
+        ],
+        "url": "/movies?near=Berlin&date=7&mid=4f6529bc642ca30d",
+        "warning_thrown": false
+      }
+    ],
+    "tid": "7bc0804d53ed2972",
+    "url": "/movies?near=Berlin&date=7&tid=7bc0804d53ed2972",
+    "warning_thrown": false
+  }
+]
