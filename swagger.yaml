@@ -1,0 +1,108 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: dairyqueen
+  description: I've got something for you!
+  termsOfService: "don't have any"
+  contact:
+    email: steven@gnobel.com
+host: dairyqueen.herokuapp.com
+basePath: /
+schemes:
+  - http
+produces:
+  - application/json
+paths:
+  /double-dips:
+    get:
+      description: Calculate all the double dips according to the
+        query parameters.
+      parameters:
+        - name: location
+          in: query
+          description: Where should the returned theatres be near?
+            This value will be used for caching purposes and
+            needs to be normalized.
+          required: true
+          type: string
+          format: normalized location
+        - name: days_from_now
+          default: 0
+          in: query
+          description: How many days from now will you be double dipping?
+          required: false
+          type: integer
+          format: int32
+        - name: max_wait_mins
+          default: 45
+          in: query
+          description: How long (in minutes) are you will to wait between
+            the end of a movie and the start of the next?
+          type: integer
+          format: int32
+        - name: max_overlap_mins
+          default: 5
+          in: query
+          description: How much overlap (in minutes) will you accept between
+            the end of one film, and the start of another? Use this parameter
+            if you are okay with leaving a movie early, or missing a few
+            minutes of trailers.
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Double Dips have been successfully calculated.
+            The `showings` property of each Theatre is a time-ordered array.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Theatre'
+        400:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: parse error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Showing:
+    required:
+      - movie
+      - startTime
+      - endTime
+    properties:
+      movie:
+        type: string
+      startTime:
+        type: string
+        format: date-time
+      endTime:
+        type: string
+        format: date-time
+  Theatre:
+    required:
+      - name
+      - address
+      - doubleDips
+    properties:
+      name:
+        type: string
+      address:
+        type: string
+        description: address as provided by google.
+      doubleDips:
+        type: array
+        items:
+          $ref: '#/definitions/DoubleDip'
+  DoubleDip:
+    type: array
+    description: this is a time-ordered array (ascending, according to `startTime`)
+    items:
+      $ref: '#/definitions/Showing'
+  Error:
+    required:
+      - msg
+    properties:
+      msg:
+        type: string
