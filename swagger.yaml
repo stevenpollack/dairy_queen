@@ -71,15 +71,23 @@ definitions:
       - movie
       - startTime
       - endTime
+      - length
     properties:
+      length:
+        type: integer
+        description: length of the movie in minutes.
       movie:
         type: string
       startTime:
         type: string
-        format: date-time
+        description: Military time formatted time-string
+          (e.g., '09:45', '23:30').
+        x-time-format: '%H:%M'
       endTime:
         type: string
-        format: date-time
+        description: Military time formatted time-string
+          (e.g., '09:45', '23:30').
+        x-time-format: '%H:%M'
   Theatre:
     required:
       - name
