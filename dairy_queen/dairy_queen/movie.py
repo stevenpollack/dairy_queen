@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 
 class Movie:
     """A Movie is an object that stores information for a particular movie (assumed
@@ -20,12 +20,21 @@ class Movie:
         if runtime <= 0:
             raise ValueError('runtime must be a positive integer')
 
-        self.start = datetime.datetime.strptime(showtime, showtime_format)
+        self.start = datetime.strptime(showtime, showtime_format)
 
-        self.runtime = datetime.timedelta(minutes=runtime)
+        self.runtime = timedelta(minutes=runtime)
         self.name = name
 
         self.end = self.start + self.runtime
+
+    def to_json(self, showtime_format='%H:%M'):
+        self.json = {
+            'movie': self.name,
+            'length': int(self.runtime.total_seconds()/60),
+            'startTime': self.start.strftime(showtime_format),
+            'endTime': self.end.strftime(showtime_format)
+        }
+        return self.json
 
     def __str__(self):
         output =  '%s (%s min): showing from %s to %s' % \

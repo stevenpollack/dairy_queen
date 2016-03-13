@@ -1,8 +1,8 @@
 import warnings
 import datetime
 from operator import attrgetter # this is for sorting
-from movie import Movie
-from doubledip import DoubleDip
+from .movie import Movie
+from .doubledip import DoubleDip
 
 class Theatre:
     """ Theatre object
@@ -19,13 +19,21 @@ class Theatre:
     """
 
     double_dips = None
+    address = None
+    json = None
 
-    def __init__(self, name, program):
+    def __init__(self, name, program, address=None):
 
         if isinstance(name, str):
             self.name = name
         else:
             raise TypeError("'name' must be a string")
+
+        if address is not None:
+            if isinstance(address, str):
+                self.address = address
+            else:
+                raise TypeError("'address' must be a string")
 
         self.program = []
 
@@ -56,8 +64,7 @@ class Theatre:
                               showtime=showtime)
                     )
                 except ValueError:
-                    warnings.warn(movie.get('name') + "could not be coerced to a Movie due to bad runtime...")
-
+                    warnings.warn(movie.get('name') + " could not be coerced to a Movie due to bad runtime...")
 
     def __str__(self):
         output = self.name + "\n\nProgram:\n"
@@ -68,7 +75,21 @@ class Theatre:
         output = "Theatre(name=%r, program=%r)" % (self.name, self.program)
         return(output)
 
-    def calculate_double_dips(self, max_waiting_time=45, max_overlap_time=30):
+    def to_json(self, max_waiting_time=45, max_overlap_time=30, showtime_format='%H:%M'):
+        if self.double_dips is None:
+            self.calculate_double_dips(max_waiting_time, max_overlap_time)
+            return self.to_json(max_waiting_time, max_overlap_time)
+
+        self.json = {
+            'name': self.name,
+            'address': self.address,
+            'doubleDips': [double_dip.to_json(showtime_format) for double_dip in self.double_dips]
+        }
+
+        return self.json
+
+
+    def calculate_double_dips(self, max_waiting_time=45, max_overlap_time=5):
 
         max_waiting_time = datetime.timedelta(minutes = max_waiting_time)
         max_overlap_time = datetime.timedelta(minutes = max_overlap_time)
