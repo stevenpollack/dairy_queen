@@ -41,6 +41,8 @@ def get_doubledips():
     if location is None or not isinstance(location, str):
         status = 400
         msg = "'location' is mandatory and must be a string."
+        resp = Response(dumps({'msg': msg}), status=status, mimetype=mimetype)
+        return resp
 
     if days_from_now is not None:
         try:
