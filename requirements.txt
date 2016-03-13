@@ -1,4 +1,4 @@
--e git+https://github.com/stevenpollack/dairy_queen.git@heroku_app#egg=dairy_queen&subdirectory=dairy_queen
+-e git+https://github.com/stevenpollack/dairy_queen.git@heroku_1.0.0#egg=dairy_queen&subdirectory=dairy_queen
 Flask==0.10.1
 gunicorn==19.4.5
 iron-cache==0.3.2
