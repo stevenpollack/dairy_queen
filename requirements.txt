@@ -1,4 +1,3 @@
--e git+git@github.com:stevenpollack/dairy_queen.git@1cb38139cffb32ffb2914dd414b6fe0bb8f639f5#egg=dairy_queen&subdirectory=dairy_queen
 Flask==0.10.1
 gunicorn==19.4.5
 iron-cache==0.3.2
