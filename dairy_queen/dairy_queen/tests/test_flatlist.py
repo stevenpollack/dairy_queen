@@ -1,4 +1,4 @@
-from doubledip import FlatList
+from dairy_queen.doubledip import FlatList
 
 class TestFlatList:
 

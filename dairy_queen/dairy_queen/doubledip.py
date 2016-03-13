@@ -1,5 +1,5 @@
 import collections
-from movie import Movie
+from .movie import Movie
 
 # SO- flatten arbirtrary list:
 # http://stackoverflow.com/questions/2158395/flatten-an-irregular-list-of-lists-in-python#2158532
@@ -62,6 +62,10 @@ class DoubleDip(FlatList):
 
         if throw_error:
             raise TypeError("DoubleDip can only be initialized from a movie or list of movies.")
+
+    def to_json(self, showtime_format='%H:%M'):
+        self.json = [movie.to_json(showtime_format) for movie in self]
+        return self.json
 
     def __repr__(self):
         output = "DoubleDip([" + ", ".join([movie.__repr__() for movie in self]) + "])"

@@ -1,8 +1,8 @@
 import warnings
 import datetime
 from operator import attrgetter # this is for sorting
-from movie import Movie
-from doubledip import DoubleDip
+from .movie import Movie
+from .doubledip import DoubleDip
 
 class Theatre:
     """ Theatre object
