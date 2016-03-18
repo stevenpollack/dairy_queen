@@ -1,8 +1,5 @@
--e git+https://github.com/stevenpollack/dairy_queen.git@heroku_1.0.0#egg=dairy_queen&subdirectory=dairy_queen
 Flask==0.10.1
 gunicorn==19.4.5
-iron-cache==0.3.2
-iron-core==1.2.0
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
