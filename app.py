@@ -10,22 +10,29 @@ from json import loads, dumps
 
 app = Flask(__name__)
 @app.route('/')
+def home():
+    return """
+    <p>main-endpoint:
+     <a href='/double-dips'>
+        double-dipper.herokuapp.com/v2/double-dips?{location[, days_from_now, max_wait_mins, max_overlap_mins]}
+     </a>
+    </p>
+    <p>docs (apiary.io):
+     <a href='/docs'>
+        double-dipper.herokuapp.com/docs
+     </a>
+    </p>
+    <p>github:
+     <a href='https://github.com/stevenpollack/dairy_queen'>
+        https://github.com/stevenpollack/dairy_queen
+     </a>
+    </p>
+    """
+
+@app.route('/docs')
 def route_to_apiary():
     apiary_io = 'http://docs.dairyqueen1.apiary.io/'
     return (redirect(apiary_io, code=302))
-
-def hello_world():
-    try:
-        cache_key = create_cache_key(near, days_from_now)
-        double_dips = json.loads(double_dip_cache.get(key=cache_key).value)
-        warn('Fetched results from cache with key: ' + cache_key)
-    except ValueError as ve:
-        warn(str(ve))
-        showtimes = json.dumps({'error': '`date` must be a base-10 integer'})
-        status = 400
-    except HTTPError as e:
-        warn(str(e))
-    return('hello world')
 
 @app.route('/double-dips', methods=['GET'])
 def get_doubledips():
@@ -77,22 +84,22 @@ def get_doubledips():
     else:
         max_overlap_time = 5
 
-
-    gms_url = 'http://google-movies-scraper.herokuapp.com/movies'
+    gms_url = 'http://google-movies-scraper.herokuapp.com/v2/movies'
     gms_params = {
         'near': location,
-        'date': days_from_now
+        'date': days_from_now,
+        'militaryTime': True
     }
 
     # should definitely build some logic to handle response code of r...
     r = requests.get(gms_url, params=gms_params)
-    theatres_json = loads(r.text)
+    theatres_json = r.json()
     output = []
     for theatre in theatres_json:
         try:
             tmp_theatre = Theatre(name=theatre.get('name'),
-                                  program=theatre.get('program'),
-                                  address=theatre.get('address'))
+                                  showtimes=theatre.get('showtimes'),
+                                  info=theatre.get('info'))
 
             tmp_json = tmp_theatre.to_json(max_waiting_time=max_waiting_time,
                                            max_overlap_time=max_overlap_time)

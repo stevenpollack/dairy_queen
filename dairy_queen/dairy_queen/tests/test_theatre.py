@@ -115,7 +115,7 @@ class TestTheatre:
 
         expected_output = {
             'name': theatre_json['name'],
-            'address': theatre_json.get('address'),
+            'info': theatre_json.get('info'),
             'doubleDips': [
                 [
                     {
@@ -144,6 +144,6 @@ class TestTheatre:
 
         theatre = Theatre(name=theatre_json.get('name'),
                           showtimes=theatre_json.get('showtimes'),
-                          address=theatre_json.get('address'))
+                          info=theatre_json.get('info'))
 
         assert theatre.to_json() == expected_output

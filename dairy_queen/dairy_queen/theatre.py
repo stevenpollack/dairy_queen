@@ -19,21 +19,21 @@ class Theatre:
     """
 
     double_dips = None
-    address = None
+    info = None
     json = None
 
-    def __init__(self, name, showtimes, address=None):
+    def __init__(self, name, showtimes, info=None):
 
         if isinstance(name, str):
             self.name = name
         else:
             raise TypeError("'name' must be a string")
 
-        if address is not None:
-            if isinstance(address, str):
-                self.address = address
+        if info is not None:
+            if isinstance(info, str):
+                self.info = info
             else:
-                raise TypeError("'address' must be a string")
+                raise TypeError("'info' must be a string")
 
         self.showtimes = []
 
@@ -75,15 +75,15 @@ class Theatre:
         output = "Theatre(name=%r, showtimes=%r)" % (self.name, self.showtimes)
         return(output)
 
-    def to_json(self, max_waiting_time=45, max_overlap_time=30, showtime_format='%H:%M'):
+    def to_json(self, max_waiting_time=45, max_overlap_time=30, time_format='%H:%M'):
         if self.double_dips is None:
             self.calculate_double_dips(max_waiting_time, max_overlap_time)
             return self.to_json(max_waiting_time, max_overlap_time)
 
         self.json = {
             'name': self.name,
-            'address': self.address,
-            'doubleDips': [double_dip.to_json(showtime_format) for double_dip in self.double_dips]
+            'info': self.info,
+            'doubleDips': [double_dip.to_json(time_format) for double_dip in self.double_dips]
         }
 
         return self.json
