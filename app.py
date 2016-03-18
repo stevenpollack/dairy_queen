@@ -1,12 +1,8 @@
-from flask import Flask, request, json, Response, redirect
-from requests import HTTPError
+from flask import Flask, request, Response, redirect
 from warnings import warn
-from iron_cache import IronCache
 from dairy_queen.theatre import Theatre
 import requests
-from json import loads, dumps
-
-#double_dip_cache = IronCache(name='double_dips')
+from json import dumps
 
 app = Flask(__name__)
 @app.route('/')
