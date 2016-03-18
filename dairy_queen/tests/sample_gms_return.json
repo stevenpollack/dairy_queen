@@ -1,0 +1,39 @@
+[
+  {
+    'name': 'Valley Cinema 2',
+    'url': None,
+    'warnings': [
+      'could not scrape theatre url'
+    ],
+    'tid': None,
+    'showtimes': [
+      {
+        'url': '/movies?date=0&near=hinsdale,+mt&mid=8fb60517b357093d',
+        'runtime': 121,
+        'name': 'The Divergent Series: Allegiant',
+        'info': 'Rated PG-13 - Action/Adventure/Romance/Scifi/Fantasy -Trailer-IMDb',
+        'warnings': [],
+        'times': [
+          '4:00',
+          '6:50',
+          '9:15'
+        ],
+        'mid': '8fb60517b357093d'
+      },
+      {
+        'url': '/movies?date=0&near=hinsdale,+mt&mid=1cbef1477059f48a',
+        'runtime': 108,
+        'name': 'Zootopia',
+        'info': 'Rated PG - Animation/Action/Adventure -Trailer-IMDb',
+        'warnings': [],
+        'times': [
+          '4:10',
+          '7:10',
+          '9:20'
+        ],
+        'mid': '1cbef1477059f48a'
+      }
+    ],
+    'info': '600 2nd Avenue South, Glasgow, MT, United States - (406) 228-9239'
+  }
+]
