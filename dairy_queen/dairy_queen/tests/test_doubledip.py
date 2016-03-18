@@ -5,8 +5,8 @@ class TestDoubleDip:
     def test_to_json(self):
 
         doubledip = DoubleDip([
-            Movie(name='a', runtime=60, showtime='12:45'),
-            Movie(name='b', runtime=120, showtime='14:00')
+            Movie(name='a', runtime=60, time='12:45'),
+            Movie(name='b', runtime=120, time='14:00')
         ])
 
         json_output = [

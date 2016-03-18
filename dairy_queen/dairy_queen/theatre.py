@@ -10,19 +10,19 @@ class Theatre:
     Parameters
     ------------
     name : a string indicating the name of the theatre.
-    program : an iterable containing entries which must have "name", "runtime",
-        and "showtimes" as keys that can be retrieved via a get()-method.
+    showtimes : an iterable containing entries which must have "name", "runtime",
+        and "times" as keys that can be retrieved via a get()-method.
 
     Returns
     -------
-    Theatre : a Theatre object which has properties "name" (str) and "program" ([Movie]).
+    Theatre : a Theatre object which has properties "name" (str) and "showtimes" ([Movie]).
     """
 
     double_dips = None
     address = None
     json = None
 
-    def __init__(self, name, program, address=None):
+    def __init__(self, name, showtimes, address=None):
 
         if isinstance(name, str):
             self.name = name
@@ -35,44 +35,44 @@ class Theatre:
             else:
                 raise TypeError("'address' must be a string")
 
-        self.program = []
+        self.showtimes = []
 
-        # there's a subtle problem with program is a dictionary (or tuple)
+        # there's a subtle problem with showtimes is a dictionary (or tuple)
         # that's not wrapped in [], so we have to check for that
-        if isinstance(program, (tuple, dict)):
-            program = [program]
+        if isinstance(showtimes, (tuple, dict)):
+            showtimes = [showtimes]
         else:
             # we wrap in a list (since this is idempotent, we shouldn't
             # have issues iterating over it.
-            program = list(program)
+            showtimes = list(showtimes)
 
-        for movie in program:
-            # movie['showtimes'] can either be a string or [string]
+        for movie in showtimes:
+            # movie['times'] can either be a string or [string]
             # so wrap in [] to be safe.
-            showtimes = movie.get('showtimes')
+            times = movie.get('times')
 
-            if isinstance(showtimes, str):
-                showtimes = [showtimes]
-            elif not isinstance(showtimes, list):
-                raise TypeError("the 'showtimes' properties of a movie must be a string or list or strings")
+            if isinstance(times, str):
+                times = [times]
+            elif not isinstance(times, list):
+                raise TypeError("the 'times' properties of a movie must be a string or list or strings")
 
-            for showtime in showtimes:
+            for time in times:
                 try:
-                    self.program.append(
+                    self.showtimes.append(
                         Movie(name=movie.get('name'),
                               runtime=movie.get('runtime'),
-                              showtime=showtime)
+                              time=time)
                     )
                 except ValueError:
                     warnings.warn(movie.get('name') + " could not be coerced to a Movie due to bad runtime...")
 
     def __str__(self):
-        output = self.name + "\n\nProgram:\n"
-        output += '\n'.join([movie.__str__() for movie in self.program]) + "\n"
+        output = self.name + "\n\nshowtimes:\n"
+        output += '\n'.join([movie.__str__() for movie in self.showtimes]) + "\n"
         return(output)
 
     def __repr__(self):
-        output = "Theatre(name=%r, program=%r)" % (self.name, self.program)
+        output = "Theatre(name=%r, showtimes=%r)" % (self.name, self.showtimes)
         return(output)
 
     def to_json(self, max_waiting_time=45, max_overlap_time=30, showtime_format='%H:%M'):
@@ -94,10 +94,10 @@ class Theatre:
         max_waiting_time = datetime.timedelta(minutes = max_waiting_time)
         max_overlap_time = datetime.timedelta(minutes = max_overlap_time)
 
-        def filter_program(movie):
+        def filter_showtimes(movie):
             output = []
             # filter out all movies that are too "far away" or too "close".
-            for x in self.program:
+            for x in self.showtimes:
                 if movie.name != x.name and movie.end <= x.start + max_overlap_time and x.start <= movie.end + max_waiting_time:
                     output.append(x)
             return(output)
@@ -110,7 +110,7 @@ class Theatre:
             else:
                 return([])
 
-            eligible_movies = filter_program(movie)
+            eligible_movies = filter_showtimes(movie)
 
             # if no movies pass the filter, we're done
             # return the terminal node as a list so that
@@ -139,15 +139,15 @@ class Theatre:
 
                 return(all_dips_from_movie)
 
-        # sort program in ASC start-time...
-        self.program.sort(key = attrgetter('start'))
+        # sort showtimes in ASC start-time...
+        self.showtimes.sort(key = attrgetter('start'))
 
         # create a stack to check if a movie has been visited in the DFS
         visited_movies = []
 
         self.double_dips = []
 
-        for movie in self.program:
+        for movie in self.showtimes:
 
             # dips can either be a single DoubleDip object, or a [DoubleDips].
             # if the latter, we can just + dips to self.double_dips.

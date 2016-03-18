@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='dairy_queen',
-      version='0.1.0',
+      version='0.2.0',
       description='package to calculate double dips in a given theatre',
       url='http://github.com/stevenpollack/dairy_queen',
       author='Steven Pollack',

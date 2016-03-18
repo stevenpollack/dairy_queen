@@ -16,11 +16,11 @@ class Movie:
     -------
     Movie: ...
     """
-    def __init__(self, name, runtime, showtime, showtime_format='%H:%M'):
+    def __init__(self, name, runtime, time, time_format='%H:%M'):
         if runtime <= 0:
             raise ValueError('runtime must be a positive integer')
 
-        self.start = datetime.strptime(showtime, showtime_format)
+        self.start = datetime.strptime(time, time_format)
 
         self.runtime = timedelta(minutes=runtime)
         self.name = name

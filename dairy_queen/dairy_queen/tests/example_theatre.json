@@ -2,120 +2,120 @@
   {
     "name": "Test Theatre 1",
     "description": "Test when there's an acceptable overlap",
-    "program": [
+    "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "showtimes": "16:00",
-        "warning_thrown": false
+        "times": ["16:00"],
+        "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "showtimes": "16:55",
-        "warning_thrown": false
+        "times": ["16:55"],
+        "warnings": []
       }
     ]
   },
   {
     "name": "Test Theatre 2",
     "description": "Test when there's an acceptable distance",
-    "program": [
+    "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "showtimes": "16:00",
-        "warning_thrown": false
+        "times": ["16:00"],
+        "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "showtimes": "17:05",
-        "warning_thrown": false
+        "times": ["17:05"],
+        "warnings": []
       }
     ]
   },
   {
     "name": "Test Theatre 3",
     "description": "Test when there's an unacceptable distance",
-    "program": [
+    "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "showtimes": "16:00",
-        "warning_thrown": false
+        "times": ["16:00"],
+        "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "showtimes": "18:00",
-        "warning_thrown": false
+        "times": ["18:00"],
+        "warnings": []
       }
     ]
   },
     {
     "name": "Test Theatre 4",
     "description": "Test when there's an unacceptable overlap",
-    "program": [
+    "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "showtimes": "16:00",
-        "warning_thrown": false
+        "times": ["16:00"],
+        "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "showtimes": "16:25",
-        "warning_thrown": false
+        "times": ["16:25"],
+        "warnings": []
       }
     ]
   },
   {
     "name": "Test Theatre 5",
     "description": "Test triplet when there's an unacceptable distance",
-    "program": [
+    "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "showtimes": "16:00",
-        "warning_thrown": false
+        "times": ["16:00"],
+        "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "showtimes": "17:05",
-        "warning_thrown": false
+        "times": ["17:05"],
+        "warnings": []
       },
       {
         "name": "c",
         "runtime": 60,
-        "showtimes": "19:05",
-        "warning_thrown": false
+        "times": ["19:05"],
+        "warnings": []
       }
     ]
   },
     {
     "name": "Test Theatre 6",
     "description": "Test triplet when all are acceptable distance",
-    "program": [
+    "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "showtimes": "16:00",
-        "warning_thrown": false
+        "times": ["16:00"],
+        "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "showtimes": "17:05",
-        "warning_thrown": false
+        "times": ["17:05"],
+        "warnings": []
       },
       {
         "name": "c",
         "runtime": 60,
-        "showtimes": "18:10",
-        "warning_thrown": false
+        "times": ["18:10"],
+        "warnings": []
       }
     ]
   }
