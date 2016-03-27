@@ -10,12 +10,12 @@ def home():
     return """
     <p>main-endpoint:
      <a href='/double-dips'>
-        double-dipper.herokuapp.com/double-dips?{location[, days_from_now, max_wait_mins, max_overlap_mins]}
+        dairy-queen.herokuapp.com/double-dips?{location[, days_from_now, max_wait_mins, max_overlap_mins]}
      </a>
     </p>
     <p>docs (apiary.io):
      <a href='/docs'>
-        double-dipper.herokuapp.com/docs
+        dairy-queen.herokuapp.com/docs
      </a>
     </p>
     <p>github:
@@ -45,6 +45,7 @@ def get_doubledips():
         status = 400
         msg = "'location' is mandatory and must be a string."
         resp = Response(dumps({'msg': msg}), status=status, mimetype=mimetype)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 
     if days_from_now is not None:
@@ -54,6 +55,7 @@ def get_doubledips():
             status = 400
             msg = "'days_from_now' must be a base-10 integer."
             resp = Response(dumps({'msg': msg}), status=status, mimetype=mimetype)
+            resp.headers['Access-Control-Allow-Origin'] = '*'
             return resp
     else:
         days_from_now = 0
@@ -65,6 +67,7 @@ def get_doubledips():
             status = 400
             msg = "'max_waiting_time' must be a base-10 integer"
             resp = Response(dumps({'msg': msg}), status=status, mimetype=mimetype)
+            resp.headers['Access-Control-Allow-Origin'] = '*'
             return resp
     else:
         max_waiting_time = 45
@@ -76,6 +79,7 @@ def get_doubledips():
             status = 400
             msg = "'max_overlap_time' must be a base-10 integer"
             resp = Response(dumps({'msg': msg}), status=status, mimetype=mimetype)
+            resp.headers['Access-Control-Allow-Origin'] = '*'
             return resp
     else:
         max_overlap_time = 5
@@ -106,6 +110,7 @@ def get_doubledips():
 
     status = 200
     resp = Response(dumps(output), status=status, mimetype=mimetype)
+    resp.headers['Access-Control-Allow-Origin'] = '*'
     return(resp)
 
 
