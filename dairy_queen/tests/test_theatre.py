@@ -1,23 +1,26 @@
-import pytest  # for fixtures
+import pytest, json  # for fixtures
 from dairy_queen.theatre import Theatre
 from dairy_queen.doubledip import DoubleDip
 from operator import attrgetter  # this is for sorting
 
 
 # only import test json once per session.
-@pytest.fixture(scope = 'module')
+@pytest.fixture(scope='module')
 def theatre_json():
-    import json
     return json.load(open('dairy_queen/tests/example_theatre.json'))
 
-def create_theatre_and_calc_double_dips(theatre_json, max_waiting_mins = 20, max_overlap_mins = 6):
-    theatre = Theatre(name = theatre_json['name'], showtimes= theatre_json['showtimes'])
-    theatre.calculate_double_dips(max_waiting_mins, max_waiting_mins)
-    theatre.showtimes.sort(key = attrgetter('name'))
-    return (theatre)
+def create_theatre_and_calc_double_dips(theatre_json, max_waiting_mins=20, max_overlap_mins=6):
+    theatre = Theatre(name=theatre_json['name'], showtimes=theatre_json['showtimes'])
+    theatre.calculate_double_dips(max_waiting_mins, max_overlap_mins)
+    theatre.showtimes.sort(key=attrgetter('name'))
+    return theatre
+
+@pytest.fixture(scope='module')
+def prototypical_showtimes():
+    return json.load(open('dairy_queen/tests/prototypical_showtimes.json'))
+
 
 class TestTheatre:
-
     def test_calculate_double_dip_1(self, theatre_json):
         # we should expect to see a list of 1 double dip, connecting
         # movie 'a' to movie 'b'
@@ -147,3 +150,100 @@ class TestTheatre:
                           info=theatre_json.get('info'))
 
         assert theatre.to_json() == expected_output
+
+    def test_case_1(self, prototypical_showtimes):
+        theatre = Theatre(name=prototypical_showtimes[0]['name'], showtimes=prototypical_showtimes[0]['showtimes'])
+        theatre.calculate_double_dips(max_waiting_time=0, max_overlap_time=0)
+
+        expected_dips = [DoubleDip(theatre.showtimes[0]), DoubleDip(theatre.showtimes[1])]
+
+        assert theatre.double_dips == expected_dips
+
+    def test_case_2(self, prototypical_showtimes):
+        theatre = create_theatre_and_calc_double_dips(prototypical_showtimes[1], max_waiting_mins=60,
+                                                      max_overlap_mins=0)
+
+        expected_dips = [
+            DoubleDip(theatre.showtimes[0]),
+            DoubleDip([theatre.showtimes[2], theatre.showtimes[1]])
+        ]
+
+        assert theatre.double_dips == expected_dips
+
+    def test_case_3(self, prototypical_showtimes):
+        theatre = create_theatre_and_calc_double_dips(prototypical_showtimes[2],
+                                                      max_waiting_mins=60,
+                                                      max_overlap_mins=0)
+
+        expected_dips = [
+            DoubleDip([theatre.showtimes[0], theatre.showtimes[3]]),
+            DoubleDip([theatre.showtimes[2], theatre.showtimes[1]])
+        ]
+
+        assert theatre.double_dips == expected_dips
+
+    def test_case_4(self, prototypical_showtimes):
+        theatre = create_theatre_and_calc_double_dips(prototypical_showtimes[3],
+                                                      max_waiting_mins=60,
+                                                      max_overlap_mins=0)
+
+        expected_dips = [
+            DoubleDip([theatre.showtimes[0], theatre.showtimes[4]]),
+            DoubleDip([theatre.showtimes[3], theatre.showtimes[1]]),
+            DoubleDip(theatre.showtimes[2])
+        ]
+
+        assert theatre.double_dips == expected_dips
+
+    def test_case_5(self, prototypical_showtimes):
+        theatre = create_theatre_and_calc_double_dips(prototypical_showtimes[4],
+                                                      max_waiting_mins=60,
+                                                      max_overlap_mins=0)
+        expected_dips = [
+            DoubleDip([theatre.showtimes[0], theatre.showtimes[3]]),
+            DoubleDip([theatre.showtimes[0], theatre.showtimes[4]]),
+            DoubleDip([theatre.showtimes[2], theatre.showtimes[1]]),
+            DoubleDip([theatre.showtimes[2], theatre.showtimes[4]]),
+        ]
+
+        assert theatre.double_dips == expected_dips
+
+    def test_case_6(self, prototypical_showtimes):
+        theatre = create_theatre_and_calc_double_dips(prototypical_showtimes[5],
+                                                      max_waiting_mins=60,
+                                                      max_overlap_mins=0)
+
+        expected_dips = [
+            DoubleDip([theatre.showtimes[0], theatre.showtimes[4], theatre.showtimes[8]]),
+            DoubleDip([theatre.showtimes[0], theatre.showtimes[7], theatre.showtimes[5]]),
+            DoubleDip([theatre.showtimes[3], theatre.showtimes[1], theatre.showtimes[8]]),
+            DoubleDip([theatre.showtimes[3], theatre.showtimes[7], theatre.showtimes[2]]),
+            DoubleDip([theatre.showtimes[6], theatre.showtimes[1], theatre.showtimes[5]]),
+            DoubleDip([theatre.showtimes[6], theatre.showtimes[4], theatre.showtimes[2]])
+        ]
+
+        assert theatre.double_dips == expected_dips
+
+
+def cinestar_berlin(self):
+    cinestar_berlin = json.load(open('dairy_queen/tests/cinestar_berlin.json'))
+    theatre = Theatre(name=cinestar_berlin['name'], showtimes=cinestar_berlin['showtimes'])
+
+    # test the situation where all films should be singleton dips:
+    # setting max_waiting_time=0 & max_overlap_time=-5 is an impossible condition
+    theatre.calculate_double_dips(max_waiting_time=0, max_overlap_time=-5)
+    expected_dips = [
+        DoubleDip(movie) for movie in theatre.showtimes
+        ]
+    assert theatre.double_dips == expected_dips
+
+    # test the situation where only films that are perfectly back-to-back are
+    # double dips
+    theatre.calculate_double_dips(max_waiting_time=0, max_overlap_time=0)
+    non_trivial_dips = []
+    for double_dip in theatre.double_dips:
+        if len(double_dip) > 1:
+            non_trivial_dips.append(double_dip)
+    expected_dips = []
+
+    assert non_trivial_dips == expected_dips

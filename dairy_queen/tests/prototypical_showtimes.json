@@ -1,0 +1,164 @@
+[
+  {
+    "name": "case 1",
+    "description": "2 parallel films",
+    "showtimes": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "times": [
+          "16:00"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "times": [
+          "16:00"
+        ],
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "name": "case 2",
+    "description": "2 parallel films, one with two showings",
+    "showtimes": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "times": [
+          "16:00"
+        ],
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "name": "case 3",
+    "description": "2 parallel films, both with 2 showings",
+    "showtimes": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30"
+        ],
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "name": "case 4",
+    "description": "2 parallel films, one with 3 showings, the other with 2",
+    "showtimes": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30",
+          "18:45"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30"
+        ],
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "name": "case 5",
+    "description": "3 films, all parallel, but the 3rd only has one showing",
+    "showtimes": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "c",
+        "runtime": 60,
+        "times": [
+          "17:30"
+        ],
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "name": "case 6",
+    "description": "3 films, all parallel, all with 3 showings",
+    "showtimes": [
+      {
+        "name": "a",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30",
+          "18:45"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "b",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30",
+          "18:45"
+        ],
+        "warnings": []
+      },
+      {
+        "name": "c",
+        "runtime": 60,
+        "times": [
+          "16:00",
+          "17:30",
+          "18:45"
+        ],
+        "warnings": []
+      }
+    ]
+  }
+]
