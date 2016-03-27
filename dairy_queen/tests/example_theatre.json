@@ -6,13 +6,17 @@
       {
         "name": "a",
         "runtime": 60,
-        "times": ["16:00"],
+        "times": [
+          "16:00"
+        ],
         "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "times": ["16:55"],
+        "times": [
+          "16:55"
+        ],
         "warnings": []
       }
     ]
@@ -24,13 +28,17 @@
       {
         "name": "a",
         "runtime": 60,
-        "times": ["16:00"],
+        "times": [
+          "16:00"
+        ],
         "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "times": ["17:05"],
+        "times": [
+          "17:05"
+        ],
         "warnings": []
       }
     ]
@@ -42,31 +50,39 @@
       {
         "name": "a",
         "runtime": 60,
-        "times": ["16:00"],
+        "times": [
+          "16:00"
+        ],
         "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "times": ["18:00"],
+        "times": [
+          "18:00"
+        ],
         "warnings": []
       }
     ]
   },
-    {
+  {
     "name": "Test Theatre 4",
     "description": "Test when there's an unacceptable overlap",
     "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "times": ["16:00"],
+        "times": [
+          "16:00"
+        ],
         "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "times": ["16:25"],
+        "times": [
+          "16:25"
+        ],
         "warnings": []
       }
     ]
@@ -78,43 +94,55 @@
       {
         "name": "a",
         "runtime": 60,
-        "times": ["16:00"],
+        "times": [
+          "16:00"
+        ],
         "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "times": ["17:05"],
+        "times": [
+          "17:05"
+        ],
         "warnings": []
       },
       {
         "name": "c",
         "runtime": 60,
-        "times": ["19:05"],
+        "times": [
+          "19:05"
+        ],
         "warnings": []
       }
     ]
   },
-    {
+  {
     "name": "Test Theatre 6",
     "description": "Test triplet when all are acceptable distance",
     "showtimes": [
       {
         "name": "a",
         "runtime": 60,
-        "times": ["16:00"],
+        "times": [
+          "16:00"
+        ],
         "warnings": []
       },
       {
         "name": "b",
         "runtime": 60,
-        "times": ["17:05"],
+        "times": [
+          "17:05"
+        ],
         "warnings": []
       },
       {
         "name": "c",
         "runtime": 60,
-        "times": ["18:10"],
+        "times": [
+          "18:10"
+        ],
         "warnings": []
       }
     ]
