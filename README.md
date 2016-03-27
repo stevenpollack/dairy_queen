@@ -15,3 +15,6 @@ n-dip...
 # Usage
 While you _could_ clone this repo and run the app locally (or mess with the contents of `dairy_queen/`),
 this app is currently being hosted at [double-dipper.herokuapp.com](https://double-dipper.herokuapp.com/).
+
+Also, you can always play with the [jupyter-notebook](demo.ipynb) if you want a demo on how you
+can use the API programmatically.
