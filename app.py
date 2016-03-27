@@ -10,7 +10,7 @@ def home():
     return """
     <p>main-endpoint:
      <a href='/double-dips'>
-        double-dipper.herokuapp.com/v2/double-dips?{location[, days_from_now, max_wait_mins, max_overlap_mins]}
+        double-dipper.herokuapp.com/double-dips?{location[, days_from_now, max_wait_mins, max_overlap_mins]}
      </a>
     </p>
     <p>docs (apiary.io):
