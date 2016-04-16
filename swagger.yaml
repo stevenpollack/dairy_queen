@@ -1,12 +1,12 @@
 swagger: "2.0"
 info:
-  version: 1.0.0
-  title: dairyqueen
+  version: 2.0.0
+  title: dairy-queen
   description: I've got something for you!
   termsOfService: "don't have any"
   contact:
     email: steven@gnobel.com
-host: dairyqueen.herokuapp.com
+host: dairy-queen.herokuapp.com
 basePath: /
 schemes:
   - http
@@ -91,14 +91,15 @@ definitions:
   Theatre:
     required:
       - name
-      - address
+      - info
       - doubleDips
     properties:
       name:
         type: string
-      address:
+      info:
         type: string
-        description: address as provided by google.
+        description: info as provided by google. Often contains
+          address and phone number of theatre.
       doubleDips:
         type: array
         items:
