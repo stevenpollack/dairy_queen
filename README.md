@@ -1,4 +1,5 @@
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/stevenpollack/dairy_queen)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg "MIT License")](LICENSE.txt)
 
 # dairy_queen
 
